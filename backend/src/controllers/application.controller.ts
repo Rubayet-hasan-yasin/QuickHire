@@ -1,18 +1,21 @@
-import type { Request, Response } from "express";
+import type { Request, Response, NextFunction } from "express";
+import mongoose from "mongoose";
 import Application from "../models/Application";
 
+export const createApplication = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { jobId, name, email, resumeLink, coverNote } = req.body;
 
-export const createApplication = async (req: Request, res: Response) => {
-    const { jobId, name, email, resumeLink, coverNote } = req.body;
+        const application = await Application.create({
+            jobId: new mongoose.Types.ObjectId(jobId),
+            name,
+            email,
+            resumeLink,
+            coverNote
+        });
 
-
-    const application = await Application.create({
-        jobId,
-        name,
-        email,
-        resumeLink,
-        coverNote
-    });
-
-    res.status(201).json({ success: true, data: application });
+        res.status(201).json({ success: true, data: application });
+    } catch (error) {
+        next(error);
+    }
 };
