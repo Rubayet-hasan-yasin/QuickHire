@@ -1,11 +1,14 @@
 import mongoose from "mongoose";
 
+let isConnected = false;
+
 export const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI as string);
-    console.log("✅ MongoDB connected");
-  } catch (error) {
-    console.error("❌ DB connection failed");
-    process.exit(1);
-  }
+  if (isConnected) return;
+
+  const uri = process.env.MONGO_URI;
+  if (!uri) throw new Error("MONGO_URI environment variable is not set");
+
+  await mongoose.connect(uri);
+  isConnected = true;
+  console.log("✅ MongoDB connected");
 };
