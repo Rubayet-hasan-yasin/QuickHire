@@ -2,13 +2,24 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Button } from './Button';
 
 export const Hero = () => {
+    const router = useRouter();
+    const [searchQuery, setSearchQuery] = useState('');
     const [isLocationOpen, setIsLocationOpen] = useState(false);
-    const [selectedLocation, setSelectedLocation] = useState("Florence, Italy");
-    const locations = ["Florence, Italy", "New York, USA", "London, UK", "Berlin, Germany", "Paris, France"];
+    const [selectedLocation, setSelectedLocation] = useState("Any Location");
+    const locations = ["Any Location", "Florence, Italy", "New York, USA", "London, UK", "Berlin, Germany", "Paris, France"];
     const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const handleSearch = () => {
+        const params = new URLSearchParams();
+        if (searchQuery) params.set('search', searchQuery);
+        if (selectedLocation && selectedLocation !== "Any Location") params.set('location', selectedLocation);
+
+        router.push(`/jobs?${params.toString()}`);
+    };
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -26,7 +37,7 @@ export const Hero = () => {
 
     return (
         <section className="bg-[#F8F8FD] pt-20 md:pt-32 pb-8 md:pb-0 relative overflow-hidden">
-            
+
             <div className="absolute top-0 right-0 w-225 h-175 opacity-100 pointer-events-none z-0 translate-x-32 -translate-y-10 lg:block hidden">
                 <Image
                     src="/assets/Pattern.svg"
@@ -40,7 +51,7 @@ export const Hero = () => {
 
             <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                 <div className="flex flex-col gap-6 md:pb-32">
-                    
+
                     <h1 className="font-heading font-semibold text-5xl md:text-7xl leading-[1.1] text-[#25324B]">
                         Discover <br />
                         more than <br />
@@ -72,6 +83,9 @@ export const Hero = () => {
                             <input
                                 type="text"
                                 placeholder="Job title or keyword"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                                 className="w-full font-sans text-base text-[#25324B] placeholder:text-gray-400 focus:outline-none bg-transparent"
                             />
                         </div>
@@ -88,7 +102,7 @@ export const Hero = () => {
                             </svg>
 
                             <div className="w-full font-sans text-[#25324B] text-base select-none truncate pr-6">
-                                {selectedLocation}
+                                {selectedLocation === "Any Location" ? "Location" : selectedLocation}
                             </div>
 
                             <div className={`absolute right-4 text-gray-400 flex items-center transition-transform duration-200 ${isLocationOpen ? 'rotate-180' : ''}`}>
@@ -104,8 +118,8 @@ export const Hero = () => {
                                         <div
                                             key={loc}
                                             className={`px-4 py-2.5 font-sans text-base cursor-pointer transition-colors flex items-center justify-between ${selectedLocation === loc
-                                                    ? 'bg-blue-50 text-[#4640DE] font-semibold'
-                                                    : 'text-[#515B6F] hover:bg-gray-50'
+                                                ? 'bg-blue-50 text-[#4640DE] font-semibold'
+                                                : 'text-[#515B6F] hover:bg-gray-50'
                                                 }`}
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -125,7 +139,13 @@ export const Hero = () => {
                             )}
                         </div>
 
-                        <Button variant="primary" className="w-full md:w-auto px-8 py-3 rounded md:ml-2 text-base font-bold bg-[#4640DE] hover:bg-[#3733B1]">Search my job</Button>
+                        <Button
+                            variant="primary"
+                            onClick={handleSearch}
+                            className="w-full md:w-auto px-8 py-3 rounded md:ml-2 text-base font-bold bg-[#4640DE] hover:bg-[#3733B1]"
+                        >
+                            Search my job
+                        </Button>
                     </div>
 
                     <p className="text-base font-sans text-[#515B6F] mt-2">
@@ -135,7 +155,7 @@ export const Hero = () => {
 
                 {/* Hero Image - Person */}
                 <div className="relative h-full hidden lg:block self-end mt-12">
-                    
+
                     <div className="relative z-10 flex justify-center items-end h-150 xl:h-162 overflow-visible">
                         <Image
                             src="/assets/person.png"
