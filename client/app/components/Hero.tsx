@@ -26,7 +26,7 @@ export const Hero = () => {
 
     return (
         <section className="bg-[#F8F8FD] pt-20 md:pt-32 pb-8 md:pb-0 relative overflow-hidden">
-            {/* Background Pattern - Top Right */}
+            
             <div className="absolute top-0 right-0 w-225 h-175 opacity-100 pointer-events-none z-0 translate-x-32 -translate-y-10 lg:block hidden">
                 <Image
                     src="/assets/Pattern.svg"
@@ -40,7 +40,7 @@ export const Hero = () => {
 
             <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                 <div className="flex flex-col gap-6 md:pb-32">
-                    {/* Main heading */}
+                    
                     <h1 className="font-heading font-semibold text-5xl md:text-7xl leading-[1.1] text-[#25324B]">
                         Discover <br />
                         more than <br />
@@ -97,7 +97,7 @@ export const Hero = () => {
                                 </svg>
                             </div>
 
-                            {/* Dropdown Menu */}
+                            {/* Dropdown */}
                             {isLocationOpen && (
                                 <div className="absolute top-[calc(100%+8px)] left-0 w-full bg-white rounded-md shadow-[0_8px_30px_rgba(32,36,48,0.12)] border border-gray-100 py-2 z-50 max-h-60 overflow-y-auto">
                                     {locations.map((loc) => (
@@ -135,7 +135,7 @@ export const Hero = () => {
 
                 {/* Hero Image - Person */}
                 <div className="relative h-full hidden lg:block self-end mt-12">
-                    {/* Person Image */}
+                    
                     <div className="relative z-10 flex justify-center items-end h-150 xl:h-162 overflow-visible">
                         <Image
                             src="/assets/person.png"
