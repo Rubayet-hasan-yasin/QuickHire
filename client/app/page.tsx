@@ -3,6 +3,7 @@ import { CTABanner } from './components/CTABanner';
 import { FeaturedJobs } from './components/FeaturedJobs';
 import { Hero } from './components/Hero';
 import { Companies } from './components/Companies';
+import { LatestJobs } from './components/LatestJobs';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ExploreByCategory />
       <CTABanner />
       <FeaturedJobs />
+      <LatestJobs />
 
     </div>
   );
