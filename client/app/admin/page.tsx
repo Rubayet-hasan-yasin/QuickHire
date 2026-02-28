@@ -104,7 +104,7 @@ export default function AdminPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-50 py-22 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto space-y-12">
 
                 {/* Header */}
@@ -218,7 +218,7 @@ export default function AdminPage() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full md:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center min-w-[160px]"
+                                className="w-full md:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center min-w-40"
                             >
                                 {isSubmitting ? (
                                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
