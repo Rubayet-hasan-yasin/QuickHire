@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Epilogue, Inter } from "next/font/google";
 import "./globals.css";
-
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 const epilogue = Epilogue({
   variable: "--font-epilogue",
@@ -29,12 +30,14 @@ export default function RootLayout({
         className={`${epilogue.variable} ${inter.variable} antialiased min-h-screen flex flex-col`}
       >
         <div className="relative">
-          
+          <div className="absolute top-0 left-0 right-0 z-50">
+            <Navbar />
+          </div>
           <main className="container mx-auto flex-1">
             {children}
           </main>
         </div>
-        
+        <Footer />
       </body>
     </html>
   );
