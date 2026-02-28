@@ -102,7 +102,7 @@ export const LatestJobs = () => {
                             </div>
 
                             {/* Content Area */}
-                            <div className="flex flex-col flex-grow">
+                            <div className="flex flex-col grow">
                                 <h4 className="font-heading font-semibold text-xl text-[#25324B] group-hover:text-[#4640DE] transition-colors mb-2">
                                     {job.title}
                                 </h4>

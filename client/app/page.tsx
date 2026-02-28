@@ -1,9 +1,9 @@
-import { ExploreByCategory } from './components/ExploreByCategory';
-import { CTABanner } from './components/CTABanner';
-import { FeaturedJobs } from './components/FeaturedJobs';
-import { Hero } from './components/Hero';
-import { Companies } from './components/Companies';
-import { LatestJobs } from './components/LatestJobs';
+import { ExploreByCategory } from '../components/home/ExploreByCategory';
+import { CTABanner } from '../components/home/CTABanner';
+import { FeaturedJobs } from '../components/home/FeaturedJobs';
+import { Hero } from '../components/home/Hero';
+import { Companies } from '../components/home/Companies';
+import { LatestJobs } from '../components/home/LatestJobs';
 
 export default function Home() {
   return (
