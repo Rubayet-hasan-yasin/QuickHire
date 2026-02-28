@@ -1,3 +1,4 @@
+import { ExploreByCategory } from './components/ExploreByCategory';
 import { Hero } from './components/Hero';
 import { Companies } from './components/Companies';
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="w-full">
       <Hero />
       <Companies />
+      <ExploreByCategory />
       
 
     </div>
