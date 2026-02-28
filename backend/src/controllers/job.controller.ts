@@ -1,6 +1,5 @@
 import type { Request, Response } from "express";
-import Job from "../models/Job";
-import { jobSchema } from "../validations/job.validation";
+import Job from "../models/Job.js";
 
 export const getJobs = async (req: Request, res: Response) => {
     const { search, category, location } = req.query;

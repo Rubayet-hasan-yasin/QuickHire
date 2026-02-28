@@ -2,11 +2,11 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import type { Request, Response, NextFunction } from "express";
-import jobRoutes from "./routes/job.routes";
-import applicationRoutes from "./routes/application.routes";
-import { notFoundHandler, errorHandler } from "./middleware/error.middleware";
+import jobRoutes from "./routes/job.routes.js";
+import applicationRoutes from "./routes/application.routes.js";
+import { notFoundHandler, errorHandler } from "./middleware/error.middleware.js";
 import morgan from "morgan";
-import { connectDB } from "./config/db";
+import { connectDB } from "./config/db.js";
 
 dotenv.config();
 

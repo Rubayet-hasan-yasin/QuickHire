@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
-import Application from "../models/Application";
+import Application from "../models/Application.js";
 
 export const createApplication = async (req: Request, res: Response, next: NextFunction) => {
     try {

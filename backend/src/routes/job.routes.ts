@@ -1,8 +1,8 @@
 import express from "express";
-import { getJobs, getJobById, createJob, deleteJob } from "../controllers/job.controller";
-import { validateRequest } from "../middleware/validate.middleware";
-import { jobSchema } from "../validations/job.validation";
-import { validateObjectId } from "../middleware/validateObjectId.middleware";
+import { getJobs, getJobById, createJob, deleteJob } from "../controllers/job.controller.js";
+import { validateRequest } from "../middleware/validate.middleware.js";
+import { jobSchema } from "../validations/job.validation.js";
+import { validateObjectId } from "../middleware/validateObjectId.middleware.js";
 
 const router = express.Router();
 
